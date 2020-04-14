@@ -1,4 +1,4 @@
-package com.frankzhu.animatorstackswipecardviewlibrary.widget;
+package com.frankzhu.animatorstackswipecardviewlibrary;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import com.frankzhu.animatorstackswipecardviewlibrary.adapter.AbstractBaseStackSwipeAdapter;
 import com.frankzhu.animatorstackswipecardviewlibrary.adapter.AbstractScaleBaseStackItemViewHolder;
 import com.frankzhu.animatorstackswipecardviewlibrary.bean.StackCardConfig;
+import com.frankzhu.animatorstackswipecardviewlibrary.widget.AutoStackSwipeCardView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

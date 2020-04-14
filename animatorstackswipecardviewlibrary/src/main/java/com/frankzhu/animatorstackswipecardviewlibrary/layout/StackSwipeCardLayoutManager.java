@@ -66,7 +66,11 @@ public class StackSwipeCardLayoutManager extends AbstractStackSwipeCardLayoutMan
    */
   private void viewScale(int position, View view) {
     view.setScaleX(1 - getStackCardConfig().getScaleLevel() * position);
-    view.setScaleY(1 - getStackCardConfig().getScaleLevel() * position);
+    if (position == getMaxShowItem() - 1) {
+      view.setScaleY(1 - getStackCardConfig().getScaleLevel() * (position - 1));
+    } else {
+      view.setScaleY(1 - getStackCardConfig().getScaleLevel() * position);
+    }
   }
 
   /**
@@ -76,11 +80,28 @@ public class StackSwipeCardLayoutManager extends AbstractStackSwipeCardLayoutMan
    * @param view     当前View
    */
   private void viewTranslation(int position, View view) {
-    int translation = getStackCardConfig().getTranslationLevel() * position;
-    if (getStackCardConfig().isBootomMode() || getStackCardConfig().isTopMode()) {
-      view.setTranslationY(getStackCardConfig().isBootomMode() ? translation : -translation);
+//    int translation = getStackCardConfig().getTranslationLevel() * position;
+//    if (getStackCardConfig().isBottomMode() || getStackCardConfig().isTopMode()) {
+//      view.setTranslationY(getStackCardConfig().isBottomMode() ? translation : -translation);
+//    } else {
+//      view.setTranslationX(getStackCardConfig().isRightMode() ? translation : -translation);
+//    }
+    if (position == getMaxShowItem() - 1) {
+      int translation = getStackCardConfig().getTranslationLevel() * (position - 1);
+      if (getStackCardConfig().isBottomMode() || getStackCardConfig().isTopMode()) {
+        view.setTranslationY(getStackCardConfig().isBottomMode() ? translation : -translation);
+      } else {
+        view.setTranslationX(getStackCardConfig().isRightMode() ? translation : -translation);
+      }
+      view.setScaleY(1 - getStackCardConfig().getScaleLevel() * (position - 1));
     } else {
-      view.setTranslationX(getStackCardConfig().isRightMode() ? translation : -translation);
+      int translation = getStackCardConfig().getTranslationLevel() * position;
+      if (getStackCardConfig().isBottomMode() || getStackCardConfig().isTopMode()) {
+        view.setTranslationY(getStackCardConfig().isBottomMode() ? translation : -translation);
+      } else {
+        view.setTranslationX(getStackCardConfig().isRightMode() ? translation : -translation);
+      }
+      view.setScaleY(1 - getStackCardConfig().getScaleLevel() * position);
     }
   }
 }

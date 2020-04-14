@@ -33,11 +33,6 @@ public class BaseAutoSwipeViewHelper implements IAutoSwipeView, StackSwipeCardVi
    */
   private long mDefaultDuration = 5000L;//单位毫秒
 
-  /**
-   * 当前素材切换剩余时间
-   */
-  protected long mDurationRemain;
-
   private boolean isAutoSwitchResource = true;
 
   public BaseAutoSwipeViewHelper(ISwipeView swipeView) {
@@ -102,7 +97,7 @@ public class BaseAutoSwipeViewHelper implements IAutoSwipeView, StackSwipeCardVi
     stopSwitchResourceTimer();
     //切换时间大于0才启动定时器
     if (time > 0 && isAutoSwitchResource()) {
-      mHandler.sendEmptyMessageDelayed(MSG_AUTO_SWIPE, time / 1000L);
+      mHandler.sendEmptyMessageDelayed(MSG_AUTO_SWIPE, time);
     }
   }
 

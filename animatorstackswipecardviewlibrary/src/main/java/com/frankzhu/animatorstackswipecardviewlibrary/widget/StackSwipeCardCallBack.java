@@ -86,8 +86,8 @@ public class StackSwipeCardCallBack<T> extends AbstractStackSwipeCardCallBack {
     float translation = (float) (getStackCardConfig().getTranslationLevel() * position - (getStackCardConfig().getTranslationLevel() * offset));
     view.setScaleX(1 - scale);
     view.setScaleY(1 - scale);
-    if (getStackCardConfig().isBootomMode() || getStackCardConfig().isTopMode()) {
-      view.setTranslationY(getStackCardConfig().isBootomMode() ? translation : -translation);
+    if (getStackCardConfig().isBottomMode() || getStackCardConfig().isTopMode()) {
+      view.setTranslationY(getStackCardConfig().isBottomMode() ? translation : -translation);
     } else {
       if (position > 0) {
         view.setTranslationX(getStackCardConfig().isRightMode() ? translation : -translation);

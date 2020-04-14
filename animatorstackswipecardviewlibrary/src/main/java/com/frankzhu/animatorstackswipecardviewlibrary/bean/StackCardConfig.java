@@ -70,7 +70,7 @@ public class StackCardConfig {
    *
    * @return true
    */
-  public boolean isBootomMode() {
+  public boolean isBottomMode() {
     return offsetMode == OFFSET_MODE_BOTTOM;
   }
 
